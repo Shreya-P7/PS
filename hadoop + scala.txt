@@ -1,0 +1,46 @@
+jps 
+start-dfs.sh
+start-yarn.sh
+hdfs dfs -mkdir /practice
+hdfs dfs -put /home/hadoop/text.txt /practice
+yarn jar /....jar wordcount /practice/text.txt /output
+hdfs dfs -cat /ouput/part-r-00000
+
+
+su -
+Password:
+ls
+
+cd dsbda
+ls
+spark
+cd spark
+cd
+ls
+spark-3.3.2-bin-hadoop3  spark-3.3.2-bin-hadoop3.tgz
+
+cd spark-3.3.2-bin-hadoop3/
+                                                                     
+scala> [root@localhost spark-3.3.2-bin-hadoop3]# touch cha.txt
+[root@localhost spark-3.3.2-bin-hadoop3]# cat > cha.txt
+h h h op op s  h u.
+^C
+[root@localhost spark-3.3.2-bin-hadoop3]# bin/spark-shell
+
+scala> var myfile = sc.textFile("cha.txt");
+
+scala> var word2 = myfile.flatMap(_.split(" "));
+
+scala> var kv2 = word2.map((_,1));
+
+scala> var wc2 = kv2.reduceByKey(_ + _)
+
+scala> wc2.foreach(println);
+(h,4)
+(,2)
+(s,1)
+(op,2)
+(u.,1)
+
+scala>
+
